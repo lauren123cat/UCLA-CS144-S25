@@ -1,0 +1,107 @@
+body {
+    background: linear-gradient(135deg, #1e1e2f, #2c2c3a);
+    font-family: 'Inconsolata', monospace;
+    display: flex;
+    justify-content: center;
+}
+
+.page-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+  
+header {
+    padding: 10px;
+    text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #e5b8e1;
+    display: flex;
+    justify-content: center; 
+}
+
+p {
+    font-size: 0.9 rem; 
+    line-height: 1.5;
+    margin-top: 0.5rem;
+    color: #ffffff;
+    display: flex;
+    justify-content: center; 
+}
+
+img {
+    max-height: 300px;
+    width: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(255, 139, 167, 0.2);
+}
+
+/* Navigation Bar */
+nav {
+    background: linear-gradient(135deg, #2b2b47, #2c2c3a);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(255, 182, 223, 0.1);
+    padding: 0.5rem;
+    margin: 2rem auto;
+    width: fit-content; 
+  }
+  
+nav ul { /* the unordred list */
+    list-style: none;       /* remove bullets */
+    display: flex;          /* make it horizontal */
+    gap: 1rem;              /* space between links */
+    padding: 10px;
+    text-align: center;
+}
+
+nav li a { /* the tag link */
+    color: #ffffff;
+    text-decoration: none;  /* remove underline */
+}
+nav li a:hover{
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Image Section */
+.image-row {
+    display: flex;
+    justify-content: center; 
+    gap: 1rem;              
+    flex-wrap: wrap;
+    margin: 2rem 0;
+  }
+
+/* Experience Section */
+.timeline {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-align: start;
+} 
+
+.item {
+    margin: 10px;
+    padding: 10px;
+    background: linear-gradient(135deg, #2b2b47, #2c2c3a);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(255, 182, 223, 0.1);
+}
+  
+.item h4 {
+    font-size: 1.1rem; 
+    font-weight: 500;
+    margin: 0.5rem 0 0;
+}
+
+.item h5 {
+    font-size: 0.9rem;  
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+}
+
+.item p {
+    font-size: 0.8 rem; 
+}
