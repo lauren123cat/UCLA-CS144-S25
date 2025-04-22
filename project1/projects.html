@@ -1,0 +1,63 @@
+<!-- projects page -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lauren</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <div class="page-container">
+        <header>
+            <h1>Lauren Liu</h1>
+            <div class="header-controls">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Me</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                    </ul>
+                </nav>
+                <button id="theme-toggle">Toggle Theme</button>
+            </div>
+        </header>
+        <main>
+            <h2>My Projects</h2>
+            <ol class="projects-list"> 
+                <li class="project-item">
+                    <h3>Remote Attestation | Python, Golang, Docker, Blockchain, DuckDB</h3>
+                    <ul class="project-details">
+                        <li>Developed a blockchain-based remote attestation framework using Hyperledger Fabric, enabling IoT nodes to independently verify each other's integrity before sharing data.</li>
+                        <li>Designed a distributed OLAP querying system across IoT nodes using DuckDB, effectively sharding data for efficient real-time queries.</li>
+                        <li>Integrated smart contracts to automate attestation processes and maintain tamper-proof verification logs.</li>
+                    </ul>
+                </li>
+                <li class="project-item">
+                    <h3>Movie Recommendations System | Python, Scikit-learn, LightGBM, Matplotlib, Seaborn</h3>
+                    <ul class="project-details">
+                        <li>Built a recommendation system to predict movie ratings from user-item interactions from a sparse ratings matrix</li>
+                        <li>Implemented neighborhood based collaborative filtering with k-NN and Pearson correlation, evaluated with 10 fold cross validation using RMSE and MAE</li>
+                        <li>Trained LightGBM LambdaRank models on the MSLR-WEB10K dataset for learning-to-rank, and analyzed feature importances</li>
+                    </ul>
+                </li>
+                <li class="project-item">
+                    <h3>SQL Query Processor | C++, Git</h3>
+                    <ul class="project-details">
+                        <li>Designed a SQL Query Processor database management system that lets users input SQL queries (SELECT, WHERE, INSERT, DELETE) for data insertion, deletion, and retrieval.</li>
+                        <li>I'm currently in the process of extending this project to support joins and aggregates. </li>
+                        <li>Implemented custom data structures in C++ from scratch, including linked lists, stacks, queues, B+ trees, hash maps, and multimaps.</li>
+                        <li>Utilized state machines and the shunting yard algorithm with RPN to parse and evaluate SQL queries.</li>
+                        <li>Implemented B+ trees for efficient data indexing and retrieval, improving query performance.</li>
+                    </ul>
+                </li>
+            </ol>
+        </main>
+    </div>
+    <script src="script.js" defer></script>
+</body>
+</html>

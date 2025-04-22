@@ -6,98 +6,121 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lauren</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> <!-- link to css file -->
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap" rel="stylesheet"> <!-- body font -->
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> <!-- header font -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico"> <!-- favicon -->
 </head>
 
 <body>
     <div class="page-container">
         <header>
             <h1>Lauren Liu</h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Me</a></li>
-                    <li><a href="interests.html">Interests</a></li>
-                </ul>
+            <div class="header-controls"> 
+                <nav> <!-- navigation bar links -->
+                    <ul> 
+                        <li><a href="index.html">Home</a></li> <!-- home page -->
+                        <li><a href="about.html">About Me</a></li> <!-- about me page -->
+                        <li><a href="projects.html">Projects</a></li> <!-- projects page -->
+                    </ul>
+                </nav>
+                <button id="theme-toggle">Toggle Theme</button> <!-- change theme button -->
+            </div>
         </header>
         <main>
             <section class="intro">
                 <div class="image-row">
                     <img src="images/me1.jpg" class="profile-img" alt="Lauren 1">
                     <img src="images/me2.jpg" class="profile-img" alt="Lauren 2">
+                    <img src="images/grey1.jpg" class="profile-img" alt="Grey 1">
                 </div>
-                <h2>Introduction</h2>
-                <p>Hi, I'm Lauren! I'm currently a 3rd year Computer Science and Linguistics student at UCLA, minoring in Data Science Engineering. </p>
+                <fieldset class="content-fieldset">
+                    <legend>Introduction</legend>
+                    <p>Hi, I'm Lauren! I'm currently a 3rd year Computer Science and Linguistics student at UCLA, minoring in Data Science Engineering. 
+                        I plan to graduate in December 2026. 
+                        Before then, I want to explore different fields of computer science and find where my passion lies by taking classes on new topics and working on new projects.
+                        I thrive in collaborative environments and I always make sure to foster a communicative atmosphere within my teams.
+                        I'm also always looking for new opportunities to learn!
+                    </p>
+                </fieldset>
             </section>
 
             <section class="experience">
                 <h2>Experience</h2>
                 <div class="timeline">
-                    <div class="item"> 
+                    <div class="experience-item"> 
                         <h4>Software Engineer Intern - Amazon</h4>
-                        <h5>Incoming, June 2025 - September 2025</h5>
-                        <p>hi</p>
+                        <h5>June 2025 - September 2025</h5>
+                        <ul>
+                            <li>Meow</li>
+                        </ul>
                     </div>
-                    <div class="item"> 
+                    <div class="experience-item"> 
                         <h4>Software Engineer Intern - Holocron</h4>
                         <h5>March 2025 - June 2025</h5>
-                        <p>hi</p>
+                        <ul>
+                            <li>Processed and transformed big data into new tables using multiprocessing.</li>
+                            <li>Used DuckDB to query tables with 40 million+ records for testing and development.</li>
+                            <li>Developed ETL pipelines with Python, Pandas, and SQL for data processing.</li>
+                        </ul>
                     </div>
-                    <div class="item"> 
+                    <div class="experience-item"> 
                         <h4>Software Engineer Intern - Pullsription</h4>
                         <h5>June 2024 - September 2024</h5>
-                        <p>hi</p>
+                        <ul>
+                            <li>Designed data schemas and managed schema changes with database migrations and version control.</li>
+                            <li>Created Python scripts to convert CSV file data into SQL commands, facilitating the import of raw data from 3
+                                comic distributors into the appropriate tables and fields.</li>
+                        </ul>
                     </div>
                 </div>
             </section>
 
-            <section class="coursework">
-                <h2>Coursework</h2>
-                <div class="timeline">
-                    <div class="item"> 
-                        <h4>Spring 2025</h4>
-                        <p>Web Applications</p>
-                        <p>Intro to Appiled Phonetics</p>
-                        <p>Syntax I</p>
-                    </div>
-                    <div class="item"> 
-                        <h4>Winter 2025</h4>
-                        <p>Database Systems Management</p>
-                        <p>Large Scale Data Mining</p>
-                        <p>Secure and Trustworthy Edge Computing Systems</p>
-                        <p>Asian American Women</p>
-                    </div>
-                    <div class="item"> 
-                        <h4>Fall 2024</h4>
-                        <p>Software Construction</p>
-                        <p>Computer Organization and Assembly</p>
-                        <p>Intro to Probability and Statistics II</p>
-                    </div>
-                    <div class="item"> 
-                        <h4>Spring 2024</h4>
-                        <p>Multivariable Calculus</p>
-                        <p>Linear Algebra</p>
-                        <p>Intro to Data Science</p>
-                        <p>Intro to Probability and Statistics I</p>
-                    </div>
-                    <div class="item"> 
-                        <h4>Fall 2024</h4>
-                        <p>Data Structures and Algorithms</p>
-                        <p>Intro to Java</p>
-                        <p>Elementary Statistics</p>
-                        <p>Calculus 2</p>
-                    </div>
+            <section class="coursework-grid">
+                <h2>Relevant Coursework</h2>
+                <div class="grid-container">
+                    <div class="grid-item span-2">Web Applications</div>
+                    <div class="grid-item">Data Management Systems</div>
+                    <div class="grid-item">Software Construction</div>
+                    <div class="grid-item">Data Structures & Algorithms</div>
+                    <div class="grid-item">Intro to Data Science</div>
+                    <div class="grid-item">Computer Organization</div>
+                    <div class="grid-item">Large Scale Data Mining</div>
+                    <div class="grid-item">Secure and Trustworthy Edge Computing Systems</div>
+                    <div class="grid-item">Intro to R</div>
                 </div>
             </section>
 
             <section class="goals">
                 <h2>Goals</h2>
-                <p>My goal is to work in blah blah blah.</p>
+                <p>When I grow up, I want to be a software engineer in a big city with nice weather, good food and a busy atmosphere (like Boston, Chicago, NYC, SF, or Philadelphia). 
+                </p>
             </section>
-
+            
+            <section class="contact-form"> 
+                <h2>Contact Me</h2>
+                <form action="#" method="post"> <!-- this form is not functional -->
+                    <fieldset>
+                        <legend>Get In Touch</legend>
+                        <div class="form-group">
+                            <label for="name">Name:</label> 
+                            <input type="text" id="name" name="user_name" required> <!-- allows user to input name as text, and stores it as user_name -->
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="text" id="email" name="user_email" required> <!-- allows user to input email as text, and stores it as user_email -->
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message:</label>
+                            <textarea id="message" name="user_message" rows="4" required></textarea> <!-- allows user to input message as text, and stores it as user_message -->
+                        </div>
+                    </fieldset>
+                    <button type="submit">Send Message</button> <!-- button to submit the form -->
+                </form>
+            </section>
         </main>
     </div>
+    <script src="script.js" defer></script> 
 </body>
 
 </html>

@@ -1,107 +1,353 @@
-body {
-    background: linear-gradient(135deg, #1e1e2f, #2c2c3a);
-    font-family: 'Inconsolata', monospace;
-    display: flex;
-    justify-content: center;
+/* --- color schemes ---*/
+:root { /* dark mode */
+  --bg-gradient-start: #1e1e2f;
+  --bg-gradient-end: #2c2c3a;
+  --text-color: #ffffff;
+  --header-color: #e5b8e1;
+  --nav-gradient-start: #2b2b47;
+  --nav-gradient-end: #2c2c3a;
+  --nav-shadow-color: rgba(255, 182, 223, 0.1);
+  --link-color: #ffffff;
+  --link-hover-color: #ffffff; 
+  --link-hover-weight: bold;
+  --item-bg-gradient-start: #2b2b47;
+  --item-bg-gradient-end: #2c2c3a;
+  --item-shadow-color: rgba(255, 182, 223, 0.1);
+  --item-h5-color: #ffffff;
+  --button-bg: var(--header-color);
+  --button-text: var(--bg-gradient-start);
+  --button-hover-bg: #d19ed0; 
+  --img-shadow-color: rgba(255, 139, 167, 0.2);
+  --link-visited-color: #c8a2c8; 
+}
+body.light-mode {
+  --bg-gradient-start: #f0f0f5;
+  --bg-gradient-end: #ffffff;
+  --text-color: #333333;
+  --header-color: #8a4baf; 
+  --nav-gradient-start: #e8e8ee;
+  --nav-gradient-end: #f5f5fa;
+  --nav-shadow-color: rgba(0, 0, 0, 0.1);
+  --link-color: #551a8b; 
+  --link-hover-color: #330066;
+  --link-hover-weight: bold;
+  --item-bg-gradient-start: #e8e8ee;
+  --item-bg-gradient-end: #f5f5fa;
+  --item-shadow-color: rgba(0, 0, 0, 0.1);
+  --item-h5-color: #555555;
+  --button-bg: var(--header-color);
+  --button-text: #ffffff;
+  --button-hover-bg: #733a94; 
+  --img-shadow-color: rgba(138, 75, 175, 0.2);
+  --link-visited-color: #6a0dad; 
 }
 
+/* --- general styles--- */
+body {
+    background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end)); /* gradient background */
+    font-family: 'Inconsolata', monospace; 
+    display: flex;
+    justify-content: center;
+    color: var(--text-color); 
+    transition: background 0.3s ease, color 0.3s ease; 
+}
 .page-container {
     max-width: 1000px;
     margin: 0 auto;
     padding: 2rem;
 }
-  
 header {
     padding: 10px;
     text-align: center;
 }
-
 h1, h2, h3, h4, h5, h6 {
-    color: #e5b8e1;
+    color: var(--header-color);
     display: flex;
     justify-content: center; 
 }
-
-p {
-    font-size: 0.9 rem; 
+h1 { /* i'm only changing h1 to satisfy requirement 6 but i'm gonna take it off later cause i prefer the body font and italic is so ugly */
+    font-family: 'Courier Prime', monospace; 
+    font-style: italic;
+}
+p { 
+    font-size: 0.9rem; 
     line-height: 1.5;
     margin-top: 0.5rem;
-    color: #ffffff;
-    display: flex;
-    justify-content: center; 
+    color: var(--text-color);
+    text-align: center; 
 }
-
 img {
-    max-height: 300px;
-    width: auto;
+    max-height: 300px; 
+    max-width: 100%;
+    height: auto;   
+    display: block;  /* prevent extra space below image */
+    margin-left: auto; /* center images if they become block */
+    margin-right: auto;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(255, 139, 167, 0.2);
+    box-shadow: 0 4px 12px var(--img-shadow-color);
+    transition: box-shadow 0.3s ease;
 }
 
-/* Navigation Bar */
-nav {
-    background: linear-gradient(135deg, #2b2b47, #2c2c3a);
+/* --- theme toggle button --- */
+#theme-toggle {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    padding: 8px 15px;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(255, 182, 223, 0.1);
+    cursor: pointer;
+    font-family: inherit; 
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+    margin-left: 1rem; 
+}
+
+#theme-toggle:hover {
+    background-color: var(--button-hover-bg);
+}
+
+/* --- content fieldset (used for introduction and contact me) --- */
+.content-fieldset { 
+    border: 1px solid var(--header-color);
+    border-radius: 5px;
+    padding: 1.5rem;
+    margin-top: 1.5rem; 
+    background: linear-gradient(145deg, var(--item-bg-gradient-start), var(--item-bg-gradient-end));
+    box-shadow: 0 2px 5px var(--item-shadow-color);
+}
+.content-fieldset legend {
+    padding: 0 0.5rem;
+    font-weight: bold;
+    color: var(--header-color);
+    font-size: 1.5rem; 
+}
+
+/* --------------------------------------------------------- home page ---------------------------------------------------- */
+/* --- navigation bar --- */
+nav {
+    background: linear-gradient(135deg, var(--nav-gradient-start), var(--nav-gradient-end));
+    border-radius: 5px;
+    box-shadow: 0 0 10px var(--nav-shadow-color);
     padding: 0.5rem;
     margin: 2rem auto;
-    width: fit-content; 
+    width: fit-content;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
   }
-  
-nav ul { /* the unordred list */
-    list-style: none;       /* remove bullets */
-    display: flex;          /* make it horizontal */
-    gap: 1rem;              /* space between links */
+nav ul { /* unordered list */
+    list-style: none; /* remove bullets */
+    display: flex;
+    gap: 1rem; /* space between links */
     padding: 10px;
     text-align: center;
+    justify-content: center; 
+    flex-wrap: wrap; 
 }
-
 nav li a { /* the tag link */
-    color: #ffffff;
+    color: var(--link-color);
     text-decoration: none;  /* remove underline */
+    transition: color 0.2s ease, font-weight 0.2s ease;
 }
-nav li a:hover{
-    color: #ffffff;
-    font-weight: bold;
+nav li a:hover{ 
+    color: var(--link-hover-color);
+    font-weight: var(--link-hover-weight);
 }
+nav li a:visited { /* req 20 -- this doesn't work?? change it later */
+    color: var(--link-visited-color);
+    font-weight: var(--link-hover-weight);
+}   
 
-/* Image Section */
+/* --- image section --- */
 .image-row {
     display: flex;
     justify-content: center; 
-    gap: 1rem;              
-    flex-wrap: wrap;
-    margin: 2rem 0;
-  }
+    gap: 1rem; /* horizontal spacing */
+    margin: 4rem 0; /* vertical spacing */
+    align-items: top; /* makes all items the same size (kinda distorts some images but i like it better */
+}
+.profile-img {
+    flex: 0 1 250px; /* default is 250px but it will shrink if needed */
+    min-width: 0; /* allows shrinking below implicit minimum size */
+    width: 100%; 
+    max-width: 100%;
+    height: auto;    
+    display: inline-block; /* stays on same line as other images */
+    border-radius: 12px; /* rounded corners */
+    box-shadow: 0 4px 12px var(--img-shadow-color);
+    transition: box-shadow 0.3s ease;
+}
 
-/* Experience Section */
+/* --- experience section --- */
 .timeline {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-align: start;
-} 
-
-.item {
+    display: block; 
+    padding-bottom: 10px;
+}
+.experience-item { 
     margin: 10px;
     padding: 10px;
-    background: linear-gradient(135deg, #2b2b47, #2c2c3a);
+    background: linear-gradient(135deg, var(--item-bg-gradient-start), var(--item-bg-gradient-end));
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(255, 182, 223, 0.1);
+    box-shadow: 0 0 10px var(--item-shadow-color);
+    max-width: 600px; 
+    margin: 1rem auto;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
 }
-  
-.item h4 {
+.experience-item h4 { /* job title */
     font-size: 1.1rem; 
     font-weight: 500;
     margin: 0.5rem 0 0;
 }
-
-.item h5 {
-    font-size: 0.9rem;  
+.experience-item h5 { /* date */
+    font-size: 0.9rem;
     font-weight: 600;
-    color: #ffffff;
     margin: 0;
 }
-
-.item p {
-    font-size: 0.8 rem; 
+.experience-item h4 + h5 { /* only to satify req 16a: if there is a h4 and a h5, adjust the margin for adjacent sibling */
+    margin-top: 0.2rem; 
 }
+.experience-item p {
+    font-size: 0.8rem; 
+}
+.experience-item li::marker { /* heart bullet points */
+    content: '♡ '; 
+    color: var(--header-color); 
+}
+.experience-item ul { /* experience item list */
+    margin-top: 0.5rem; 
+    padding-left: 20px; 
+    text-align: left;  
+}
+.experience-item li {
+    margin-bottom: 0.3rem; 
+    font-size: 0.8rem;    
+    color: var(--text-color); 
+    line-height: 1.4;     
+}
+
+
+/* --- coursework section --- */
+.grid-container { /* i don't like this grid layout, this is only for req 13 */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    grid-template-rows: auto auto; /* 2 rows */
+    gap: 1rem; 
+    margin-top: 1rem; 
+}
+.grid-item { 
+    background: linear-gradient(135deg, var(--item-bg-gradient-start), var(--item-bg-gradient-end)); 
+    padding: 1.5rem 1rem;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 2px 5px var(--item-shadow-color);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.grid-item.span-2 { /* so that one of them is occupying 2 columns. THIS IS UGLY THOUGH! */
+    grid-column: span 2;
+}
+
+
+/* --- contact me form --- */
+.contact-form {
+    margin-top: 2rem;
+}
+.contact-form fieldset { /* the box that contains the form */
+    border: 1px solid var(--header-color); 
+    border-radius: 5px;
+    padding: 1.5rem;
+    background: linear-gradient(145deg, var(--item-bg-gradient-start), var(--item-bg-gradient-end)); 
+    box-shadow: 0 2px 5px var(--item-shadow-color);
+}
+.contact-form legend { /* form title */
+    padding: 0 0.5rem;
+    font-weight: bold;
+    color: var(--header-color);
+}
+.contact-form label { /* labels (ex. Name, Email, Message) */
+    display: block; 
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+.contact-form input[type="text"], 
+.contact-form input[type="email"],
+.contact-form textarea { /* inputs (ex. user_name, user_email, user_message) */
+    width: 100%; 
+    padding: 0.7rem;
+    border: 1px solid var(--item-shadow-color); 
+    border-radius: 4px;
+    background-color: var(--bg-gradient-start);
+    color: var(--text-color);
+    box-sizing: border-box; 
+}
+.contact-form input:required:invalid,
+.contact-form textarea:required:invalid { /* invalid states -> red */
+    border-left: 3px solid #e86a6a;
+}
+.contact-form input:required:valid,
+.contact-form textarea:required:valid { /* valid  states -> blue */
+    border-left: 3px solid #6a9de8;
+}
+.contact-form button[type="submit"] { /* submit button */
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+}
+.contact-form button[type="submit"]:hover { /* hover effect */
+    background-color: var(--button-hover-bg);
+}
+
+/* --------------------------------------------------------- about me page ---------------------------------------------------- */
+/* --- about me section --- */
+.about-list li::marker { /* heart bullet points */
+    content: '♡ '; 
+    color: var(--header-color); 
+}
+.about-list li { 
+    margin-bottom: 0.75rem; /* space between bullet points cause it looks better this way */
+}
+
+/* --- greycat section --- */
+img[alt^="Greycat"] { /* style images differently if alt text starts with greycat*/
+    border: 2px solid var(--header-color);
+    padding: 2px; 
+}
+
+/* --------------------------------------------------------- projects page ---------------------------------------------------- */
+/* --- project section --- */
+.project-details li::marker { /* heart bullet points */
+    content: '♡ ';
+    color: var(--header-color); 
+}
+
+
+/* --------------------------------------------------------- media queries ---------------------------------------------------- */
+/* tablets: under 768px */
+@media (max-width: 768px) {
+    .page-container {
+        padding: 1.5rem;
+    }
+    .timeline {
+        padding-bottom: 15px; 
+    }
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr); /* grid will have 2 columns now */
+    }
+}
+/* mobile phones: under 480px */
+@media (max-width: 480px) {
+    .page-container { 
+        padding: 1rem;
+    }
+    .grid-container {
+        grid-template-columns: 1fr; /* grid will have 1 column now */
+    }
+    .grid-item.span-2 {
+        grid-column: span 1; 
+    }
+}
+

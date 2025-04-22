@@ -7,33 +7,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lauren</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-    <header>
-        <h1>Lauren's Personal Page</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Me</a></li>
-                <li><a href="interests.html">Interests</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section class="intro">
-            <h2>Hi</h2>
-            <p>I'm from Arcadia, California. My favorite color is pink. I love listening to Lana Del Rey. </p>
-        </section>
+    <div class="page-container">
+        <header>
+            <h1>Lauren Liu</h1>
+            <div class="header-controls">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Me</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                    </ul>
+                </nav>
+                <button id="theme-toggle">Toggle Theme</button>
+            </div>
+        </header>
+        <main>
+            <section class="intro">
+                <h2>Hi! More about me: </h2>
+                <ul class="about-list">
+                    <li>I'm from Arcadia, California.</li>
+                    <li>My favorite color is light pink. This website is purple because I feel like darker shades of pink can be a little tacky.</li>
+                    <li>I love coffee. My go to drink is an iced brown sugar shaken espresso with salted caramel cold foam from Starbucks. The Starbucks workers next to my apartment know me because I go there everyday.</li>
+                    <li>I love studying in places with a nice atmosphere, like libraries and cafes. My favorite library at UCLA is the Rosenfeld Library because of the huge windows. But when I have actual work to do, I work better in my apartment because I can use my monitor setup.</li>
+                    <li>I love online shopping for clothes. My favorite websites are Brandy Melville, Pacsun, and Edikted.</li>
+                    <li>My most used apps are Messages, Instagram, Spotify, Reddit, Discord, Google Calendar, Sudoku, and Pinterest. I need to lower my screen time and social media usage.</li>
+                    <li>I've visited Hawaii, NYC, Seattle, Las Vegas, Tokyo, and Seoul. (Most with my family) </li>
+                    <li>I want to visit Zion National Park and Niagara Falls. I want to get into hiking but I never have the time. </li>
+                    <li>I like playing Dress to Impress on Roblox with my best friend.</li>
+                    <li>My favorite animes include: Death Note, Attack on Titan, Full Metal Alchemist Brotherhood.</li>
+                    <li>My favorite movies include: Interstellar, the Spongebob Squarepants Movie, The Social Network, Superbad, 21 & 22 Jumpstreet, Clueless, Legally Blonde, Inglorious Basterds, and the Wolf of Wall Street.</li>
+                    <li>My favorite TV shows include: Squid Games, Arcane, and Gossip Girl. </li>
+                    <li>I want to get into making custom keyboards and PC's.</li>
+                </ul>
+            </section>
 
-        <section class="greycat">
-            <h2>This is Greycat</h2>
-            <img src="images/grey1.jpg" class="profile-img"/>
-            <img src="images/grey3.jpg" class="profile-img"/>
-            <img src="images/grey5.jpg" class="profile-img"/>
-            <img src="images/grey6.jpg" class="profile-img"/>
-            <p>I named her Greycat due to the color of her fur.</p>
-        </section>
-    </main>
+            <section class="greycat">
+                <h2>This is Greycat</h2>
+                <div class="image-row">
+                    <img src="images/grey1.jpg" class="profile-img" alt="Greycat 1"/>
+                    <img src="images/grey3.jpg" class="profile-img" alt="Greycat 3"/>
+                    <img src="images/grey5.jpg" class="profile-img" alt="Greycat 5"/>
+                    <img src="images/grey6.jpg" class="profile-img" alt="Greycat 6"/>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js" defer></script>
 </body>
 </html>
 
