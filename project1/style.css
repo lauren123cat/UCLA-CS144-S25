@@ -177,52 +177,80 @@ nav li a:visited { /* req 20 -- this doesn't work?? change it later */
 }
 
 /* --- experience section --- */
-.timeline {
-    display: block; 
-    padding-bottom: 10px;
+.timeline-container { /* the timeline container that will fit everything inside it*/
+    position: relative; 
+    padding: 3rem 0;
+    margin: 0 auto; 
+    max-width: 900px; 
 }
-.experience-item { 
-    margin: 10px;
-    padding: 10px;
-    background: linear-gradient(135deg, var(--item-bg-gradient-start), var(--item-bg-gradient-end));
-    border-radius: 5px;
-    box-shadow: 0 0 10px var(--item-shadow-color);
-    max-width: 600px; 
-    margin: 1rem auto;
-    transition: background 0.3s ease, box-shadow 0.3s ease;
+/* the vertical line in the middle of the screen */
+.timeline-container::before {
+    content: ''; /* creates the line */
+    position: absolute; /* positions the line */
+    top: 0; 
+    bottom: 0; 
+    left: 50%;
+    width: 3px; 
+    background-color: var(--header-color); 
+    transform: translateX(-50%); /* centers the line */
 }
-.experience-item h4 { /* job title */
-    font-size: 1.1rem; 
-    font-weight: 500;
-    margin: 0.5rem 0 0;
+.timeline-item { /* each experience item */
+    position: relative; /* positioning context for the date and content box */
+    width: 50%; /* each item will take up half of the container */
+    margin-bottom: 3rem; 
+    box-sizing: border-box;
 }
-.experience-item h5 { /* date */
+.timeline-item:nth-child(odd) { /* left items (odd) */
+    left: 0;
+    padding-right: 30px; 
+}
+.timeline-item:nth-child(even) { /* right items (even) */
+    left: 50%;
+    padding-left: 30px; 
+}
+.timeline-item h5 { /* date */
     font-size: 0.9rem;
     font-weight: 600;
-    margin: 0;
-}
-.experience-item h4 + h5 { /* only to satify req 16a: if there is a h4 and a h5, adjust the margin for adjacent sibling */
-    margin-top: 0.2rem; 
-}
-.experience-item p {
-    font-size: 0.8rem; 
-}
-.experience-item li::marker { /* heart bullet points */
-    content: '♡ '; 
-    color: var(--header-color); 
-}
-.experience-item ul { /* experience item list */
-    margin-top: 0.5rem; 
-    padding-left: 20px; 
-    text-align: left;  
-}
-.experience-item li {
-    margin-bottom: 0.3rem; 
-    font-size: 0.8rem;    
     color: var(--text-color); 
-    line-height: 1.4;     
+    margin-bottom: 0.5rem;
+    padding: 0.2rem 0.5rem;
+    display: inline-block; 
+    background: var(--item-bg-gradient-end); 
+    border-radius: 4px;
 }
-
+.timeline-item:nth-child(odd) h5 { /* date alignment to the rightfor left items (it's left by default) */
+    float: right; 
+}
+.item-content-box { /* the experience content */
+    clear: both; 
+    position: relative; 
+    padding: 15px;
+    background: linear-gradient(135deg, var(--item-bg-gradient-start), var(--item-bg-gradient-end));
+    border-radius: 6px;
+    box-shadow: 0 0 10px var(--item-shadow-color);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+.item-content-box::after { /* the triangle pointer */
+    content: '';
+    position: absolute;
+    top: 15px; 
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+}
+.timeline-item:nth-child(odd) .item-content-box::after { /* triangle on the right */
+    right: -20px; 
+    border-left-color: var(--item-bg-gradient-start); 
+}
+.timeline-item:nth-child(even) .item-content-box::after { /* triangle on the left */
+    left: -20px; 
+    border-right-color: var(--item-bg-gradient-start); 
+}   
+.timeline-item::after { /* makes sure everything is vertically aligned evenly */
+    content: ""; 
+    display: table; 
+    clear: both; 
+}
 
 /* --- coursework section --- */
 .grid-container { /* i don't like this grid layout, this is only for req 13 */
@@ -328,14 +356,32 @@ img[alt^="Greycat"] { /* style images differently if alt text starts with greyca
 /* --------------------------------------------------------- media queries ---------------------------------------------------- */
 /* tablets: under 768px */
 @media (max-width: 768px) {
-    .page-container {
+    /* Adjust timeline for smaller screens */
+    .timeline-container::before { /* move timeline to the left */
+        left: 15px; 
+    }
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) { /* put timeline items to the right of the timeline */
+        width: 100%;
+        left: 0;
+        padding-left: 40px; 
+        padding-right: 0;
+        margin-bottom: 2rem;
+    }
+    .timeline-item:nth-child(odd) h5,
+    .timeline-item:nth-child(even) h5 { /* remove float and align all dates left */
+        float: none; 
+        text-align: left; 
+    }
+    .timeline-item:nth-child(odd) .item-content-box::after,
+    .timeline-item:nth-child(even) .item-content-box::after { /* move all the triangles to the left */
+         right: auto; 
+         left: -20px; 
+         border-left-color: transparent; /* make left triangle invisible */
+         border-right-color: var(--item-bg-gradient-start); 
+    }
+    .page-container { 
         padding: 1.5rem;
-    }
-    .timeline {
-        padding-bottom: 15px; 
-    }
-    .grid-container {
-        grid-template-columns: repeat(2, 1fr); /* grid will have 2 columns now */
     }
 }
 /* mobile phones: under 480px */
