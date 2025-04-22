@@ -68,9 +68,22 @@ h1, h2, h3, h4, h5, h6 {
 h1 { /* i'm only changing h1 to satisfy requirement 6 but i'm gonna take it off later cause i prefer the body font and italic is so ugly */
     font-family: 'Courier Prime', monospace; 
     font-style: italic;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+h2::before { /* this is just to satisfy requirement 18 i actually don't want this */
+    content: '౨ৎ '; 
+    display: inline-block; 
+    margin-right: 0.5rem; 
+    color: pink
+}
+h2::after { 
+    content: ' ౨ৎ'; 
+    display: inline-block; 
+    margin-left: 0.5rem; 
+    color: pink
 }
 p { 
-    font-size: 0.9rem; 
+    font-size: clamp(0.85rem, 0.5rem + 1vw, 1rem);
     line-height: 1.5;
     margin-top: 0.5rem;
     color: var(--text-color);
@@ -123,6 +136,7 @@ img {
 }
 
 /* --------------------------------------------------------- home page ---------------------------------------------------- */
+
 /* --- navigation bar --- */
 nav {
     background: linear-gradient(135deg, var(--nav-gradient-start), var(--nav-gradient-end));
@@ -162,7 +176,7 @@ nav li a:visited { /* req 20 -- this doesn't work?? change it later */
     justify-content: center; 
     gap: 1rem; /* horizontal spacing */
     margin: 4rem 0; /* vertical spacing */
-    align-items: top; /* makes all items the same size (kinda distorts some images but i like it better */
+    align-items: center; 
 }
 .profile-img {
     flex: 0 1 250px; /* default is 250px but it will shrink if needed */
@@ -179,7 +193,7 @@ nav li a:visited { /* req 20 -- this doesn't work?? change it later */
 /* --- experience section --- */
 .timeline-container { /* the timeline container that will fit everything inside it*/
     position: relative; 
-    padding: 3rem 0;
+    padding: 0.5rem 0;
     margin: 0 auto; 
     max-width: 900px; 
 }
@@ -396,4 +410,3 @@ img[alt^="Greycat"] { /* style images differently if alt text starts with greyca
         grid-column: span 1; 
     }
 }
-

@@ -24,13 +24,14 @@
 
 7.  **Nested List & Marker:**
     *   `projects.html` uses a nested list (`ol.projects-list > li.project-item > ul.project-details`). 
-    *   I made all my markers into heart bullet points.
+    *   The marker for the innermost list items (`ul.project-details li`) is changed to '♡ ' using the `::marker` pseudo-element in `style.css`.
 
 8.  **Light and dark mode (CSS variables):**
-    *   I implemented using CSS variables (`:root` and `body.light-mode`) and a JavaScript toggle. Applies across all pages.
+    *   I implemented using CSS variables (in `:root` and `body.light-mode`) and a JavaScript toggle. Applies across all pages.
 
 9.  **Advanced typography:**
-    *   Not done yet
+    *   I added `text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);` to the `h1` element for depth.
+    *   Used `font-size: clamp(0.85rem, 0.5rem + 1vw, 1rem);` on the `p` element for typography scaling and to add responsiveness.
 
 10. **Basic JavaScript functionality:**
     *   I implemented a theme toggle button. You can choose between a light and dark theme, and it defaults with dark.
@@ -61,14 +62,14 @@
         *   Uses `<fieldset>` and `<legend>` 
 
 18. **Advanced inline text styling:**
-    *   Meow
+    *   Used the `::before` and `::after` pseudo-element on my `h2` headings to add a bow character (`content: ' ౨ৎ';`) before and after the heading text.
 
 19. **Links:**
-    *   Navigation includes 3 links. 
+    *   Navigation bar has 3 links. 
     *   I implemented style changes on `:hover` and `:visited` (using the CSS color variables)
 
 20. **No CSS Conflicts:**
-    *  Hi
+    *  Yes
 
 21. **Validation:**
-    *   Hi
+    *  Yes
